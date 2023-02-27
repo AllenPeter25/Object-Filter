@@ -13,7 +13,7 @@ function filterCollection(...args){
                 [key1 , key2] = key.split(".")
                 if(element[key1][key2]?.length){
                     for(ele of searchKeys){
-                        if(element[key1][key2].includes(ele)){
+                        if(element[key1][key2].toLowerCase().includes(ele.toLowerCase())){
                             searchKeys.splice(searchKeys.indexOf(ele),1)
                             noOfMatches++;
                         }
@@ -22,7 +22,7 @@ function filterCollection(...args){
                 else{
                     for(ele of searchKeys){
                         for(val of element[key1]){
-                            if(val[key2].includes(ele)){
+                            if(val[key2].toLowerCase().includes(ele.toLowerCase())){
                                 searchKeys.splice(searchKeys.indexOf(ele),1)
                                 noOfMatches++;
                             }
@@ -32,7 +32,7 @@ function filterCollection(...args){
             }
             else{
                 for(ele of searchKeys){
-                    if(element[key].includes(ele)){
+                    if(element[key].toLowerCase().includes(ele.toLowerCase())){
                         searchKeys.splice(searchKeys.indexOf(ele),1)
                         noOfMatches++
                     }
